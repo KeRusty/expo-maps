@@ -7,8 +7,6 @@ export default function PlacesSearchBar(props) {
 
     const [place, setPlace] = useState();
 
-    (event) => { event.preventDefault(); app.signIn(event.target.email.value, event.target.password.value); }
-
     return (
         <PlacesInput
             placeHolder={props.placeholder}

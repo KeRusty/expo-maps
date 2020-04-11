@@ -7,21 +7,12 @@ export default StyleSheet.create({
         flex: 1,
         backgroundColor: '#f1f1f1'
     },
-    twoPointsContainer: {
+    searchContainer: {
         paddingVertical: 20,
         paddingHorizontal: 20,
         width: '100%'
     },
-    twoPointsText: {
-        fontSize: 20,
-        fontWeight: 'bold'
-    },
-    currentLocationContainer: {
-        paddingVertical: 20,
-        paddingHorizontal: 20,
-        width: '100%'
-    },
-    currentLocationText: {
+    searchText: {
         fontSize: 20,
         fontWeight: 'bold'
     },
