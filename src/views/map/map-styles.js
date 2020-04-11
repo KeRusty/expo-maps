@@ -5,29 +5,14 @@ export default StyleSheet.create({
 
     container: {
         flex: 1,
-        backgroundColor: '#f1f1f1'
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
-    twoPointsContainer: {
-        paddingVertical: 20,
-        paddingHorizontal: 20,
-        width: '100%'
+    mapStyle: {
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height,
     },
-    twoPointsText: {
-        fontSize: 20,
-        fontWeight: 'bold'
-    },
-    currentLocationContainer: {
-        paddingVertical: 20,
-        paddingHorizontal: 20,
-        width: '100%'
-    },
-    currentLocationText: {
-        fontSize: 20,
-        fontWeight: 'bold'
-    },
-    searchBarContainer: {
-        paddingVertical: 10,
-    }
 
 
 
