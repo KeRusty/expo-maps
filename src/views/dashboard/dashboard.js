@@ -1,11 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TouchableOpacity, Text, View, SafeAreaView } from 'react-native';
-
 import PlacesSearchBar from '../../components/placesSearchBar';
 
 import styles from './dashboard-styles';
 
 export default function Dashboard(props) {
+
+    const [origin, setOrigin] = useState();
+
+    const [destination, setDestination] = useState();
+
+    const onChangeOrigin = (places) => {
+        setOrigin(places)
+    }
+
+    const onChangeDestination = (places) => {
+        setDestination(places)
+    }
+
+    console.log(origin)
+    console.log(destination)
 
     return (
         <SafeAreaView style={styles.container}>
@@ -14,8 +28,14 @@ export default function Dashboard(props) {
                 <Text style={styles.searchText}>Enter Two Points</Text>
 
                 <View style={styles.searchBarContainer}>
-                    <PlacesSearchBar placeholder="Enter Origin Here" />
-                    <PlacesSearchBar placeholder="Enter Destination Here" />
+                    <PlacesSearchBar placeholder="Enter Origin Here" onChange={onChangeOrigin} />
+                    <PlacesSearchBar placeholder="Enter Destination Here" onChange={onChangeDestination} />
+                </View>
+
+                <View style={styles.buttonContainer}>
+                    <TouchableOpacity style={styles.button}>
+                        <Text style={styles.buttonText}>Go!</Text>
+                    </TouchableOpacity>
                 </View>
 
             </View>
@@ -33,8 +53,6 @@ export default function Dashboard(props) {
                 <TouchableOpacity onPress={() => props.navigation.navigate('map')}>
                     <Text style={styles.searchText}>Map</Text>
                 </TouchableOpacity>
-
-
 
             </View>
 
