@@ -13,7 +13,7 @@ export default StyleSheet.create({
         width: '100%'
     },
     searchText: {
-        fontSize: 20,
+        fontSize: 16,
         fontWeight: 'bold'
     },
     searchBarContainer: {
