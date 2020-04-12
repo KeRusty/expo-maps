@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Dimensions, View } from 'react-native';
 import MapView from 'react-native-maps';
-import Constants from 'expo-constants';
+import { GOOGLE_API_KEY } from "react-native-dotenv";
+import MapViewDirections from 'react-native-maps-directions';
 import * as Location from 'expo-location';
 
 import styles from './map-styles';
@@ -19,10 +20,6 @@ export default function Map(props) {
     const origin = props.navigation.state.params.origin ? props.navigation.state.params.origin : null
     const destination = props.navigation.state.params.destination ? props.navigation.state.params.destination : null
     const locationDestination = props.navigation.state.params.locationDestination ? props.navigation.state.params.locationDestination : null
-
-    console.log(origin)
-    console.log(destination)
-    console.log(locationDestination)
 
     useEffect(() => {
         (async () => {
@@ -51,13 +48,41 @@ export default function Map(props) {
                         longitudeDelta: LONGITUDE_DELTA
                     }}
                 >
-                    <MapView.Marker
-                        coordinate={{
-                            latitude: location.latitude,
-                            longitude: location.longitude,
-                        }}
-                        title={"My Location"}
-                    />
+                    {origin &&
+                        <MapView.Marker
+                            coordinate={{
+                                latitude: origin.geometry.location.lat,
+                                longitude: origin.geometry.location.lng,
+                            }}
+                            title={"Origin"}
+                        />
+                    }
+                    {destination &&
+                        <MapView.Marker
+                            coordinate={{
+                                latitude: destination.geometry.location.lat,
+                                longitude: destination.geometry.location.lng,
+                            }}
+                            title={"Destination"}
+                        />
+                    }
+                    {(origin && destination) &&
+                        <MapViewDirections
+                            origin={{
+                                latitude: origin.geometry.location.lat,
+                                longitude: origin.geometry.location.lng
+                            }}
+                            destination={{
+                                latitude: destination.geometry.location.lat,
+                                longitude: destination.geometry.location.lng
+                            }}
+                            apikey={GOOGLE_API_KEY}
+                            strokeWidth={3}
+                            strokeColor="hotpink"
+                            optimizeWaypoints={true}
+                        />
+
+                    }
 
                 </MapView>
             }
