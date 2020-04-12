@@ -7,7 +7,7 @@ import * as Location from 'expo-location';
 import styles from './map-styles';
 
 
-export default function Map() {
+export default function Map(props) {
 
     const { width, height } = Dimensions.get("window");
     const ASPECT_RATIO = width / height;
@@ -15,6 +15,14 @@ export default function Map() {
     const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
     const [location, setLocation] = useState(null);
     const [errorMsg, setErrorMsg] = useState(null);
+
+    const origin = props.navigation.state.params.origin ? props.navigation.state.params.origin : null
+    const destination = props.navigation.state.params.destination ? props.navigation.state.params.destination : null
+    const locationDestination = props.navigation.state.params.locationDestination ? props.navigation.state.params.locationDestination : null
+
+    console.log(origin)
+    console.log(destination)
+    console.log(locationDestination)
 
     useEffect(() => {
         (async () => {
@@ -27,8 +35,6 @@ export default function Map() {
             setLocation(location.coords);
         })();
     }, []);
-
-    console.log(location)
 
     return (
         <View style={styles.container}>
