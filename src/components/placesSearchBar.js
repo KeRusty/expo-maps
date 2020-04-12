@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Text, View } from 'react-native';
 import PlacesInput from 'react-native-places-input';
 import { GOOGLE_API_KEY } from "react-native-dotenv";
 

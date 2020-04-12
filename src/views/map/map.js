@@ -122,7 +122,6 @@ export default function Map(props) {
                         />
                     }
 
-
                 </MapView>
             }
 
