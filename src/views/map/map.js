@@ -42,8 +42,8 @@ export default function Map(props) {
                     provider="google"
                     zoomEnabled={true}
                     initialRegion={{
-                        latitude: location.latitude,
-                        longitude: location.longitude,
+                        latitude: (origin && destination) ? origin.geometry.location.lat : (location && locationDestination) ? location.latitude : null,
+                        longitude: (origin && destination) ? origin.geometry.location.lng : (location && locationDestination) ? location.longitude : null,
                         latitudeDelta: LATITUDE_DELTA,
                         longitudeDelta: LONGITUDE_DELTA
                     }}
