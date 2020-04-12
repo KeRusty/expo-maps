@@ -7,11 +7,16 @@ export default function PlacesSearchBar(props) {
 
     const [place, setPlace] = useState();
 
+    const onChange = (places) => {
+
+        props.onChange(places)
+    }
+
     return (
         <PlacesInput
             placeHolder={props.placeholder}
             googleApiKey={GOOGLE_API_KEY}
-            onSelect={place => setPlace(place.result)}
+            onSelect={place => onChange(place.result)}
             language={"en-US"}
             stylesContainer={{
                 position: 'relative',
