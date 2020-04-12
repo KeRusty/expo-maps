@@ -100,7 +100,7 @@ export default function Map(props) {
                             }}
                             apikey={GOOGLE_API_KEY}
                             strokeWidth={3}
-                            strokeColor="hotpink"
+                            strokeColor="blue"
                             optimizeWaypoints={true}
                         />
                     }
@@ -117,7 +117,7 @@ export default function Map(props) {
                             }}
                             apikey={GOOGLE_API_KEY}
                             strokeWidth={3}
-                            strokeColor="hotpink"
+                            strokeColor="blue"
                             optimizeWaypoints={true}
                         />
                     }
