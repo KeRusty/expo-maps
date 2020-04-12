@@ -25,34 +25,48 @@ export default function Dashboard(props) {
         <SafeAreaView style={styles.container}>
 
             <View style={styles.searchContainer}>
+
                 <Text style={styles.searchText}>Enter Two Points</Text>
 
                 <View style={styles.searchBarContainer}>
+
                     <PlacesSearchBar placeholder="Enter Origin Here" onChange={onChangeOrigin} />
+
                     <PlacesSearchBar placeholder="Enter Destination Here" onChange={onChangeDestination} />
+
                 </View>
 
                 <View style={styles.buttonContainer}>
+
                     <TouchableOpacity style={styles.button}>
+
                         <Text style={styles.buttonText}>Go!</Text>
+
                     </TouchableOpacity>
+
                 </View>
 
             </View>
 
             <View style={styles.searchContainer}>
+
                 <Text style={styles.searchText}>Use Current Location</Text>
 
                 <View style={styles.searchBarContainer}>
-                    <PlacesSearchBar placeholder="Search Here" />
+
+                    <PlacesSearchBar placeholder="Search Here for Destination" />
+
                 </View>
-            </View>
 
-            <View style={styles.searchContainer}>
+                <View style={styles.buttonContainer}>
 
-                <TouchableOpacity onPress={() => props.navigation.navigate('map')}>
-                    <Text style={styles.searchText}>Map</Text>
-                </TouchableOpacity>
+                    <TouchableOpacity style={styles.button}>
+
+                        <Text style={styles.buttonText}>Go!</Text>
+
+                    </TouchableOpacity>
+
+                </View>
 
             </View>
 
