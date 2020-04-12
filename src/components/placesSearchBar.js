@@ -28,10 +28,9 @@ export default function PlacesSearchBar(props) {
                 shadowOpacity: 0,
                 borderColor: '#dedede',
                 borderWidth: 1,
-                marginBottom: 10
+                marginBottom: 4
             }}
             stylesList={{
-                top: 50,
                 borderColor: '#dedede',
                 borderLeftWidth: 1,
                 borderRightWidth: 1,
