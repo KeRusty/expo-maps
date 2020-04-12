@@ -33,8 +33,6 @@ export default function Map(props) {
         })();
     }, []);
 
-    console.log(location)
-
     return (
         <View style={styles.container}>
 
@@ -59,6 +57,7 @@ export default function Map(props) {
                             title={"Origin"}
                         />
                     }
+
                     {destination &&
                         <MapView.Marker
                             coordinate={{
@@ -68,6 +67,7 @@ export default function Map(props) {
                             title={"Destination"}
                         />
                     }
+
                     {(location && locationDestination) &&
                         <MapView.Marker
                             coordinate={{
@@ -77,6 +77,7 @@ export default function Map(props) {
                             title={"My Location"}
                         />
                     }
+
                     {(location && locationDestination) &&
                         <MapView.Marker
                             coordinate={{
@@ -86,6 +87,7 @@ export default function Map(props) {
                             title={"Destination"}
                         />
                     }
+
                     {(origin && destination) &&
                         <MapViewDirections
                             origin={{
@@ -102,6 +104,7 @@ export default function Map(props) {
                             optimizeWaypoints={true}
                         />
                     }
+
                     {(location && locationDestination) &&
                         <MapViewDirections
                             origin={{
