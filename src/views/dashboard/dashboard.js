@@ -29,6 +29,28 @@ export default function Dashboard(props) {
 
             <View style={styles.searchContainer}>
 
+                <Text style={styles.searchText}>Use Current Location</Text>
+
+                <View style={styles.searchBarContainer}>
+
+                    <PlacesSearchBar placeholder="Search Here for Destination" onChange={onChangeLocationDestination} />
+
+                </View>
+
+                <View style={styles.buttonContainer}>
+
+                    <TouchableOpacity style={styles.button} onPress={() => props.navigation.navigate('map', { locationDestination: locationDestination })}>
+
+                        <Text style={styles.buttonText}>Go!</Text>
+
+                    </TouchableOpacity>
+
+                </View>
+
+            </View>
+
+            <View style={styles.searchContainer}>
+
                 <Text style={styles.searchText}>Enter Two Points</Text>
 
                 <View style={styles.searchBarContainer}>
@@ -42,28 +64,6 @@ export default function Dashboard(props) {
                 <View style={styles.buttonContainer}>
 
                     <TouchableOpacity style={styles.button} onPress={() => props.navigation.navigate('map', { origin: origin, destination: destination })}>
-
-                        <Text style={styles.buttonText}>Go!</Text>
-
-                    </TouchableOpacity>
-
-                </View>
-
-            </View>
-
-            <View style={styles.searchContainer}>
-
-                <Text style={styles.searchText}>Use Current Location</Text>
-
-                <View style={styles.searchBarContainer}>
-
-                    <PlacesSearchBar placeholder="Search Here for Destination" onChange={onChangeLocationDestination} />
-
-                </View>
-
-                <View style={styles.buttonContainer}>
-
-                    <TouchableOpacity style={styles.button} onPress={() => props.navigation.navigate('map', { locationDestination: locationDestination })}>
 
                         <Text style={styles.buttonText}>Go!</Text>
 
