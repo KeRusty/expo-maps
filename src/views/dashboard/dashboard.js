@@ -10,6 +10,8 @@ export default function Dashboard(props) {
 
     const [destination, setDestination] = useState();
 
+    const [locationDestination, setLocationDestination] = useState();
+
     const onChangeOrigin = (places) => {
         setOrigin(places)
     }
@@ -18,8 +20,9 @@ export default function Dashboard(props) {
         setDestination(places)
     }
 
-    console.log(origin)
-    console.log(destination)
+    const onChangeLocationDestination = (places) => {
+        setLocationDestination(places)
+    }
 
     return (
         <SafeAreaView style={styles.container}>
@@ -38,7 +41,7 @@ export default function Dashboard(props) {
 
                 <View style={styles.buttonContainer}>
 
-                    <TouchableOpacity style={styles.button}>
+                    <TouchableOpacity style={styles.button} onPress={() => props.navigation.navigate('map', { origin: origin, destination: destination })}>
 
                         <Text style={styles.buttonText}>Go!</Text>
 
@@ -54,13 +57,13 @@ export default function Dashboard(props) {
 
                 <View style={styles.searchBarContainer}>
 
-                    <PlacesSearchBar placeholder="Search Here for Destination" />
+                    <PlacesSearchBar placeholder="Search Here for Destination" onChange={onChangeLocationDestination} />
 
                 </View>
 
                 <View style={styles.buttonContainer}>
 
-                    <TouchableOpacity style={styles.button}>
+                    <TouchableOpacity style={styles.button} onPress={() => props.navigation.navigate('map', { locationDestination: locationDestination })}>
 
                         <Text style={styles.buttonText}>Go!</Text>
 
