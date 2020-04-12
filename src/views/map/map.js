@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Dimensions, View } from 'react-native';
+import { Dimensions, View, TouchableOpacity, Text } from 'react-native';
 import MapView from 'react-native-maps';
 import { GOOGLE_API_KEY } from "react-native-dotenv";
 import MapViewDirections from 'react-native-maps-directions';
 import * as Location from 'expo-location';
 
 import styles from './map-styles';
-
 
 export default function Map(props) {
 
@@ -48,6 +47,12 @@ export default function Map(props) {
                         longitudeDelta: LONGITUDE_DELTA
                     }}
                 >
+                    <TouchableOpacity style={styles.backButton} onPress={() => props.navigation.goBack()}>
+
+                        <Text style={styles.buttonText}>Back</Text>
+
+                    </TouchableOpacity>
+
                     {origin &&
                         <MapView.Marker
                             coordinate={{

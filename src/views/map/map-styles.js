@@ -13,6 +13,14 @@ export default StyleSheet.create({
         width: Dimensions.get('window').width,
         height: Dimensions.get('window').height,
     },
+    backButton: {
+        paddingHorizontal: 20,
+        paddingVertical: 44
+    },
+    buttonText: {
+        fontSize: 16,
+        fontWeight: 'bold'
+    }
 
 
 
