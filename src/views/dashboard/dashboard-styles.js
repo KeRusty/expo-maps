@@ -20,17 +20,17 @@ export default StyleSheet.create({
         paddingVertical: 10,
     },
     buttonContainer: {
-        paddingHorizontal: 120
+        paddingHorizontal: 130
     },
     button: {
         backgroundColor: '#000000',
         paddingVertical: 12,
-        borderRadius: 20,
+        borderRadius: 18,
         justifyContent: 'center',
         alignItems: 'center'
     },
     buttonText: {
-        fontSize: 18,
+        fontSize: 14,
         fontWeight: 'bold',
         color: '#ffffff'
     }
