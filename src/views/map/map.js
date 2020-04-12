@@ -33,6 +33,8 @@ export default function Map(props) {
         })();
     }, []);
 
+    console.log(location)
+
     return (
         <View style={styles.container}>
 
@@ -66,6 +68,24 @@ export default function Map(props) {
                             title={"Destination"}
                         />
                     }
+                    {(location && locationDestination) &&
+                        <MapView.Marker
+                            coordinate={{
+                                latitude: location.latitude,
+                                longitude: location.longitude,
+                            }}
+                            title={"My Location"}
+                        />
+                    }
+                    {(location && locationDestination) &&
+                        <MapView.Marker
+                            coordinate={{
+                                latitude: locationDestination.geometry.location.lat,
+                                longitude: locationDestination.geometry.location.lng,
+                            }}
+                            title={"Destination"}
+                        />
+                    }
                     {(origin && destination) &&
                         <MapViewDirections
                             origin={{
@@ -81,8 +101,24 @@ export default function Map(props) {
                             strokeColor="hotpink"
                             optimizeWaypoints={true}
                         />
-
                     }
+                    {(location && locationDestination) &&
+                        <MapViewDirections
+                            origin={{
+                                latitude: location.latitude,
+                                longitude: location.longitude
+                            }}
+                            destination={{
+                                latitude: locationDestination.geometry.location.lat,
+                                longitude: locationDestination.geometry.location.lng
+                            }}
+                            apikey={GOOGLE_API_KEY}
+                            strokeWidth={3}
+                            strokeColor="hotpink"
+                            optimizeWaypoints={true}
+                        />
+                    }
+
 
                 </MapView>
             }
